@@ -142,7 +142,7 @@ function loadCalendar() {
       calendar.rows[1].cells[i].style.backgroundColor = "transparent";
     } 
     if ((i >= paddingDays) && (i < (paddingDays+daysInMonth))) {
-      setCalendarStyles(i, paddingDays, daysInMonth);
+      setCalendarStyles(i, paddingDays);
       if (i < 7) { calendar.rows[1].cells[i].innerHTML = (i - paddingDays + 1)}
       else if (i < 14) { calendar.rows[2].cells[(i-7)].innerHTML = (i - paddingDays + 1); }
       else if (i < 21) { calendar.rows[3].cells[(i-14)].innerHTML = (i - paddingDays + 1); }
@@ -162,7 +162,7 @@ function loadCalendar() {
     }
   }
 
-  function setCalendarStyles(i, paddingDays, daysInMonth) {
+  function setCalendarStyles(i, paddingDays) {
     // if day is today:
     if ((i - paddingDays === day) && (nav == 0)) {
       if (i % 7 ===  0) {
@@ -173,7 +173,11 @@ function loadCalendar() {
         today_cell = 0;
       } else {
         today_row = Math.floor((i / 7) + 1);
-        today_cell = ((i % 7) + paddingDays - 1);
+        if (i > 6) {
+          today_cell = ((i % 7) + paddingDays - 1);
+        } else {
+          today_cell = i - 1;
+        }
       }
       today_cal = calendar.rows[today_row].cells[today_cell];
       today_cal.style.backgroundColor = "#657070";

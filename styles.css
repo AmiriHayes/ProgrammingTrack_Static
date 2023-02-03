@@ -172,7 +172,7 @@ Header Styles
     height: 100%;
     background: black;
     color: #FBFAF5;
-    z-index: 1;
+    z-index: 10;
     animation: slide ease-in 0.4s;
 }
 #exit:hover {
@@ -395,6 +395,7 @@ Stats Styles
 }
 .language {
     display: flex;
+    justify-content: space-between;
     padding: 10px 10px;
     position: relative;
     border-top-left-radius: var(--radius);
@@ -494,6 +495,16 @@ Calendar Styles
     text-transform: uppercase;
     font-weight: bolder;
     font-family: var(--ff-secondary);
+}
+.modal {
+    display: none;
+    width: 80%;
+    margin: 0 auto;
+    height: 300px;
+    justify-self: center;
+    align-items: center;
+    background-color: black;
+    z-index: 10;
 }
 .link:hover { transform: scale(1.125); }
 .link a { color: var(--clr-accent-dark); }
